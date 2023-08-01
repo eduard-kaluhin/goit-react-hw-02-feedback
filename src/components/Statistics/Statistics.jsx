@@ -1,8 +1,8 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, Grid, ResultWrapper } from './Statistics.styled';
 import StatisticsLayout from '../StatisticsLayout';
-import Notification from '../Notification';
 
 const Statistics = ({ feedbackOptions }) => {
   const { good, neutral, bad } = feedbackOptions;
@@ -15,7 +15,7 @@ const Statistics = ({ feedbackOptions }) => {
   return (
     <StatisticsLayout title="Statistics">
       {totalFeedback === 0 ? (
-        <Notification message="No feedback given" />
+        <p>No feedback given</p>
       ) : (
         <Box>
           <Grid>
@@ -40,8 +40,6 @@ const Statistics = ({ feedbackOptions }) => {
   );
 };
 
-export default Statistics;
-
 Statistics.propTypes = {
   feedbackOptions: PropTypes.shape({
     good: PropTypes.number.isRequired,
@@ -49,3 +47,7 @@ Statistics.propTypes = {
     bad: PropTypes.number.isRequired,
   }),
 };
+
+export default Statistics;
+
+
