@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
+import Notification from './Notification'; // Імпортуємо компонент Notification
 
 export class App extends Component {
   state = {
@@ -22,13 +23,17 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const totalFeedback = good + neutral + bad;
+
     return (
       <Section title="Please leave feedback">
-        <FeedbackOptions
-          onClick={this.onClick}
-          feedbackOptions={this.state}
-        ></FeedbackOptions>
-        <Statistics feedbackOptions={this.state} />
+        <FeedbackOptions onClick={this.onClick} feedbackOptions={this.state} />
+        {totalFeedback === 0 ? ( // Перевіряємо, чи є зібрані відгуки
+          <Notification message="No feedback given" /> // Показуємо Notification, якщо відгуків немає
+        ) : (
+          <Statistics feedbackOptions={this.state} /> // Показуємо Statistics, якщо є зібрані відгуки
+        )}
       </Section>
     );
   }
