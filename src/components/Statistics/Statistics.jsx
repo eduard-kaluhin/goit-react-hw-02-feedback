@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, ResultWrapper } from './Statistics.styled';
 import StatisticsLayout from '../StatisticsLayout';
-import Notification from '../Notification';
+
 
 const Statistics = ({ feedbackOptions, totalFeedback, positivePercentage }) => {
-  const { good, neutral, bad } = feedbackOptions;
+  
   return (
     <StatisticsLayout title="Statistics">
         <Box>
