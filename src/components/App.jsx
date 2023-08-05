@@ -19,7 +19,7 @@ export class App extends Component {
   };
   // Метод для підрахунку відсотку позитивних відгуків
   getPositivePercentage = () => {
-    const { good, neutral, bad } = this.state;
+    const { good, } = this.state;
     const totalFeedback = this.getTotalFeedback();
     return totalFeedback === 0 ? 0 : Math.round((good / totalFeedback) * 100);
   };
