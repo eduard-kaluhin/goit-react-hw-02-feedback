@@ -32,7 +32,7 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.getTotalFeedback();
-    const positivePercentage = this.getPositivePercentage();
+  const positivePercentage = this.getPositivePercentage();        
     return (
       <Section title="Please leave feedback">
         <FeedbackOptions onClick={this.onClick} feedbackOptions={ Object.keys.this.state} />
@@ -40,12 +40,12 @@ export class App extends Component {
           <Notification message="No feedback given" />
         ) : (
           <Statistics
-  good={good}
-  neutral={neutral}
-  bad={bad}
-  totalFeedback={totalFeedback}
-  positivePercentage={positivePercentage}
-  feedbackOptions={this.state} // Передаем feedbackOptions в компонент Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        totalFeedback={totalFeedback}
+        positivePercentage={positivePercentage}
+        feedbackOptions={this.state} // Передаем feedbackOptions в компонент Statistics
 />
         )}
       </Section>
